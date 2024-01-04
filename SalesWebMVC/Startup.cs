@@ -50,6 +50,10 @@ namespace SalesWebMVC
             //declarando o metodo classe SellerService
 
             services.AddScoped<SellerService>();
+
+            //declarando o metdo da classe DepartmentService
+
+            services.AddScoped<DepartmentService>();
         }
 
 
