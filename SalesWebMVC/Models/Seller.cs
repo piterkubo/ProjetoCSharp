@@ -28,6 +28,12 @@ namespace SalesWebMVC.Models
         public Department Department { get; set; }
 
 
+
+        // Declarando o metodo para não deixar o id como null
+        public int DepartmentId { get; set; }
+
+
+
         //importando a coleção de salesrecord e instanciando.
         public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
 
