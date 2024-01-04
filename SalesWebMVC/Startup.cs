@@ -11,6 +11,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SalesWebMVC.Data;
+//desclarando o diretorio service
+using SalesWebMVC.Services;
 
 
 namespace SalesWebMVC
@@ -44,6 +46,10 @@ namespace SalesWebMVC
 
 
             services.AddScoped<SeedingService>();
+
+            //declarando o metodo classe SellerService
+
+            services.AddScoped<SellerService>();
         }
 
 
