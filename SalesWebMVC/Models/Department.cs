@@ -12,8 +12,7 @@ namespace SalesWebMVC.Models
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public int MyProperty { get; set; }
-
+        
         //importando uma coleção de sellers e instanciando 
         public ICollection<Seller> Sellers { get; set; } = new List<Seller>();
 

@@ -9,7 +9,7 @@ using SalesWebMVC.Data;
 namespace SalesWebMVC.Migrations
 {
     [DbContext(typeof(SalesWebMVCContext))]
-    [Migration("20240104202610_DepartmentForeignKey")]
+    [Migration("20240105145659_DepartmentForeignKey")]
     partial class DepartmentForeignKey
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,8 +23,6 @@ namespace SalesWebMVC.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<int>("MyProperty");
 
                     b.Property<string>("Name");
 

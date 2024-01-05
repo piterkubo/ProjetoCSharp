@@ -22,8 +22,6 @@ namespace SalesWebMVC.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("MyProperty");
-
                     b.Property<string>("Name");
 
                     b.HasKey("Id");

@@ -23,6 +23,7 @@ namespace SalesWebMVC.Services
             return _context.Seller.ToList();
         }
 
+        // metodo para inserir
 
         public void Insert(Seller obj)
         {
@@ -32,5 +33,18 @@ namespace SalesWebMVC.Services
 
         }
 
+        public Seller FindById(int id)
+        {
+            return _context.Seller.FirstOrDefault(obj => obj.Id == id);
+        }
+
+        //metodo para remover via logica
+
+        public void Remove(int id)
+        {
+            var obj = _context.Seller.Find(id);
+            _context.Seller.Remove(obj);
+            _context.SaveChanges();
+        }
     }
 }
