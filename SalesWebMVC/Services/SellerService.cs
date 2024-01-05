@@ -8,6 +8,10 @@ using System.Linq;
 
 // importando a biblioteca para seguir com eager loading
 using Microsoft.EntityFrameworkCore;
+using System;
+
+// importando a biblioteca notfound
+using SalesWebMVC.Services.Exceptions;
 
 namespace SalesWebMVC.Services
 {
@@ -25,6 +29,7 @@ namespace SalesWebMVC.Services
         {
             return _context.Seller.ToList();
         }
+
 
         // metodo para inserir
 
@@ -50,6 +55,31 @@ namespace SalesWebMVC.Services
             var obj = _context.Seller.Find(id);
             _context.Seller.Remove(obj);
             _context.SaveChanges();
+        }
+
+
+        //metodo para editar via logica
+
+        public void Update(Seller obj)
+        {
+            if(!_context.Seller.Any(x => x.Id == obj.Id))
+            {
+                throw new NotFoundException("Id not Found");
+            }
+
+            try
+            {
+                _context.Update(obj);
+                _context.SaveChanges();
+            }
+
+
+            catch (DbUpdateConcurrencyException msg)
+            {
+                throw new DbConcurrencyException(msg.Message);
+            }
+
+            
         }
     }
 }
