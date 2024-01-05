@@ -6,6 +6,9 @@ using SalesWebMVC.Models;
 using System.Collections.Generic;
 using System.Linq;
 
+// importando a biblioteca para seguir com eager loading
+using Microsoft.EntityFrameworkCore;
+
 namespace SalesWebMVC.Services
 {
     public class SellerService
@@ -35,8 +38,10 @@ namespace SalesWebMVC.Services
 
         public Seller FindById(int id)
         {
-            return _context.Seller.FirstOrDefault(obj => obj.Id == id);
+            // fazendo um join da tabela depto e vendedor com (Include)
+            return _context.Seller.Include(obj => obj.Department).FirstOrDefault(obj => obj.Id == id);
         }
+
 
         //metodo para remover via logica
 
