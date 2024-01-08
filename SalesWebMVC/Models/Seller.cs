@@ -17,8 +17,17 @@ namespace SalesWebMVC.Models
     {
         public int Id { get; set; }
 
+        //implementando uma anotation[]
+        // {0} = nome do atributo
+        // {1} = o valor max 60 declarado
+        // {2} = o valor min 3 declarado
+
+
+        [Required(ErrorMessage = "{0} required")]
+        [StringLength(60, MinimumLength = 3, ErrorMessage = "{0} size should be between {2} and {1}")]
         public string Name { get; set; }
 
+        [EmailAddress(ErrorMessage = "{0} required")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
@@ -28,6 +37,8 @@ namespace SalesWebMVC.Models
         [DisplayFormat(DataFormatString ="{0:dd/MM/yyyy}")]
         public DateTime BirthDate { get; set; }
 
+
+        [Range(100.0, 50000.0, ErrorMessage = "{0} must be from {1} to {2}")]
         [Display(Name = "Salario Base")]
         [DisplayFormat(DataFormatString ="{0:F2}")]
         public double BaseSalary { get; set; }
