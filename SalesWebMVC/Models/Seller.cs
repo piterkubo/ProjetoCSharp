@@ -2,6 +2,8 @@
 
 // importando a biblioteca icollection para criar o relacionamento de salesrecord.
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
 
 // importando a biblioteca linq para retorno do calculo via lambda
 using System.Linq;
@@ -17,10 +19,17 @@ namespace SalesWebMVC.Models
 
         public string Name { get; set; }
 
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
+        //criando o anotation display []
+        [Display(Name = "Dt Nascimento")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString ="{0:dd/MM/yyyy}")]
         public DateTime BirthDate { get; set; }
 
+        [Display(Name = "Salario Base")]
+        [DisplayFormat(DataFormatString ="{0:F2}")]
         public double BaseSalary { get; set; }
 
 

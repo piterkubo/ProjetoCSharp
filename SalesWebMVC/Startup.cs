@@ -14,6 +14,13 @@ using SalesWebMVC.Data;
 //desclarando o diretorio service
 using SalesWebMVC.Services;
 
+// importando a biblioteca para couterInfo
+using System.Globalization;
+
+// importando a biblioteca localization
+using Microsoft.AspNetCore.Localization;
+
+
 
 namespace SalesWebMVC
 {
@@ -61,6 +68,18 @@ namespace SalesWebMVC
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, SeedingService seedingService)
         {
+            //metodo para definir o valor moeda e a localização.
+            var enUs = new CultureInfo("en-US");
+
+            var localizationOptions = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture(enUs),
+                SupportedCultures = new List<CultureInfo> { enUs },
+                SupportedUICultures = new List<CultureInfo> { enUs }
+            };
+
+            app.UseRequestLocalization(localizationOptions);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
