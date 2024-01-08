@@ -3,6 +3,12 @@ using SalesWebMVC.Models;
 using System.Collections.Generic;
 using System.Linq;
 
+// importando a biblioteca tasks
+using System.Threading.Tasks;
+
+// importando a biblioteca EntityFramework p / .Tolist ficar asincrona 
+using Microsoft.EntityFrameworkCore;
+
 namespace SalesWebMVC.Services
 {
     public class DepartmentService
@@ -16,9 +22,9 @@ namespace SalesWebMVC.Services
 
         // metodo para retornar todos os deptos
 
-        public List<Department> FindAll()
+        public async Task<List<Department>> FindAllasync() // async para asincrona deixar mais rapido
         {
-            return _context.Department.OrderBy(x => x.Name).ToList();
+            return await _context.Department.OrderBy(x => x.Name).ToListAsync();
         }
     }
 }
