@@ -47,6 +47,7 @@ namespace SalesWebMVC.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Seller seller)
         {
+            //metodo para validar
             if (!ModelState.IsValid)
             {
                 var departments = _departmentService.FindAll();
@@ -159,6 +160,8 @@ namespace SalesWebMVC.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, Seller seller)
         {
+
+            //metodo para validar
             if (!ModelState.IsValid)   
             {
                 var departments = _departmentService.FindAll();
