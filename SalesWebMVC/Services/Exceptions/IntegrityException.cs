@@ -8,7 +8,7 @@ namespace SalesWebMVC.Services.Exceptions
         public IntegrityException(string messege) : base(messege) 
         { 
         
-        
+            
         
         }
     }
